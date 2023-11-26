@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Hello VP Garage!
+  
+{% endblock %}
+
+{% block head %}
+
+
+{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+     { backgroundcolor:#EE82EE; padding: 2px 6px; }
+</style>
+<h1>Hello {{ controller_name }}! ✅</h1>
+
+   
+     
+    {% for article in articles %}
+    <div class= "col-md-4 my-2 d-flex">
+   <div class="card" style width="80%">
+   <div class="card-body">
+    
+    
+  <img src="{{asset('media/'~article.image)}}" class="card-img-top" alt="png;base64">
+  <div class="card-body">
+    <h5 class="card-title">{{ article.titre }}</h5>
+    <p class="card-text">{{ article.description }}.</p>
+    <p> prix: {{ article.price }} </p>
+    <p> Année: {{ article.year }} </p>
+    <p> {{ article.kilometrage }} km </p>
+    <p> Type de moteur: {{ article.moteur}} </p>
+    <a href="{{ path( 'app_article_part',{id: article.id} ) }}" class="btn btn-primary"> Details...</a>
+  </div> 
+</div>
+</div>
+</div>
+{% endfor %}
+
+
+ 
+
+
+
+
+
+
+
+
+    
+
+{% endblock %}

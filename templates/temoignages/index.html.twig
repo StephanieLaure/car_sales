@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TemoignagesController!{% endblock %}
+
+{% block body %}
+<style>
+    .backgroundcolor: red
+</style>
+
+{% for temoignage in temoignages %}
+
+<div class ="col p-2">
+<div class="card" style="width: 12rem;" border-radius = 50%;>
+  <img src="{{asset('media/automobile_logo.png')}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text"> {{temoignage.message }} </p><br>
+    <button onclick="myFunction()">Click here to see the name </button>
+
+<p id="demo"></p>
+
+  
+  <script>
+function myFunction() {
+  var txt;
+    
+    if (confirm("Appuyer sur le bouton!")) {
+    txt = "{{temoignage.name}}";
+  } 
+  document.getElementById("demo").innerHTML = txt;
+}
+
+</script>
+
+</div>
+  </div>
+  </div>
+
+
+ {% endfor %}
+
+
+    
+
+    <h1> Laissez un témoignage </h1>
+
+     {{ form_errors(form) }}
+
+    {{ form_start(form) }}
+        {{ form_row(form.name)}}
+           
+           
+        {{form_row(form.email)}}
+           
+        {{ form_row(form.message) }}
+            
+        
+        {{ form_row(form.agreeTerms) }}
+
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+    {{ form_end(form) }}
+
+
+
+     
+
+
+{% endblock %}

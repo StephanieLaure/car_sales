@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CarController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #7F00FF; padding: 2px 6px; }
+    .slidecontainer {
+  width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 50%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+  padding: 2px 6px;
+  marging: 2px;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+</style>
+  <p> Filtrer les voitures par prix </p>
+  <div class="slidecontainer">
+  <input type="range" min="5000" max="60000" value="50000" class="slider" id="myRange">
+  <p>Value: <span id= "demo"></span></p>
+  
+</div>
+
+
+
+    <h1> {{ controller_name }}! ✅</h1>
+    {% for article in articles %}
+   
+   <div class="card" style width="80%">
+   <div class="card-body">
+    <div class="card" style="width: 18rem;">
+   
+  <img src="{{asset('media/'~article.image)}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{article.titre}}</h5>
+    <p class="card-text">{{article.description}}.</p>
+    <p class="card-text">{{ article.price}} € </p>
+    <p class= "card-text"> {{ article.kilometrage}} Km </p>
+    <p class ="card-text"> Année de mise en circulation: {{ article.year}} </p>
+    <p class = "card-text"> Moteur: {{ article.moteur}}</p>
+   
+    <a href="{{path('app_article_part',{id: article.id})}}" class="btn btn-primary">details...</a>
+  </div>
+</div>
+</div>
+</div>
+{% endfor %}
+
+
+    
+
+<script>
+
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+</script>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ArticlePartController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+
+    <h1>{{ controller_name }}! ✅</h1>
+
+  
+   
+ 
+  {% for article in articles %}
+   <div class= "col-md-4 my-2 d-flex">
+   <div class="card" style width="80%">
+   <div class="card-body">
+  
+  <img src="{{ asset('media/'~article.image)}}" class="card-img-top" alt="voiture qashqai">
+ 
+    <h5 class="card-title">{{article.titre }} </h5>
+    <p class="card-text">{{ article.description}} </p>
+    <p class="card-text">{{ article.kilometrage}}Km</p>
+    <p class ="card-text">{{article.price}} €</p>
+    <p class ="card-text"> année: {{article.year}}</p>
+    <p class="card-text"> Type de moteur: {{ article.moteur}} </p>
+    <a href="{{path('app_contact' ,{id: article.id})}}" class="btn btn-secondary">Contact</a>
+  </div>
+</div>
+</div>  
+
+{% endfor %}
+
+
+
+
+
+
+    
+</div>
+{% endblock %}

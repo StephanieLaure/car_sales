@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            {#{{ encore_entry_link_tags('app') }}#}
+
+        
+        {% endblock %}
+        
+       
+    <body>
+
+     
+
+    <div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <div class="col-md-3 mb-2 mb-md-0">
+        <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+           <img src="{{asset('media/automobile_logo.png')}}" width= "180", height="170">
+         
+        </a>
+      </div>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="{{ path('app_home' )}}" class="btn btn-primary me-2">Accueil</a></li>
+        <li><a href="{{path('app_service')}}" class="btn btn-primary me-2">Services</a></li>
+        <li><a href="{{ path( 'app_contact' )}}" class="btn btn-primary me-2">Contact</a></li>
+        <li><a href="{{ path( 'app_car' )}}" class="btn btn-primary me-2">Voitures</a></li>
+        <li><a href="{{ path('app_temoignages')}}" class="btn btn-primary me-2">Témoignages</a></li>
+      </ul>
+
+      <div class="col-md-3 text-end">
+        <type="button" ><a href="{{ path('app_login') }}" class="btn btn-primary me-2"> Connection </button></a>
+        <type="button" > <a href="{{ path('app_register')}}"class="btn btn-primary me-2"> Inscription </button></a>
+      </div>
+    </header>
+  </div>
+
+    </head> 
+   
+       
+     {% block body %} {% endblock %}
+
+     {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
+   
+    </body>
+<div class="container">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <p class="col-md-4 mb-0 text-body-secondary">&copy; 2023 Vincent Parrot Garage, Inc</p>
+
+    <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+    </a>
+
+    <ul class="nav col-md-4 justify-content-end">
+      <li class="nav-item"><a href=""{{ path('app_home' )}}"" class="nav-link px-2 text-body-secondary">Accueil</a></li>
+      <li class="nav-item"><a href="{{path('app_service')}}" class="nav-link px-2 text-body-secondary">Services</a></li>
+      <li class="nav-item"><a href="{{ path( 'app_contact' )}}" class="nav-link px-2 text-body-secondary">Contact</a></li>
+      <li class="nav-item"><a href="{{ path( 'app_car' )}}" class="nav-link px-2 text-body-secondary">Voitures</a></li>
+      <li class="nav-item"><a href="{{ path('app_temoignages')}}" class="nav-link px-2 text-body-secondary">Témoignages</a></li>
+    </ul>
+  </footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</html>
