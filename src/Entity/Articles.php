@@ -5,8 +5,11 @@ namespace App\Entity;
 use App\Repository\ArticlesRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HTTPFoundation\File\File;
 
 #[ORM\Entity(repositoryClass: ArticlesRepository::class)]
+#[ Vich\Uploadable]
 class Articles
 {
     #[ORM\Id]
@@ -19,6 +22,8 @@ class Articles
 
     #[ORM\Column(length: 255)]
     private ?string $image = null;
+    #[Vich\UploadableField(mapping: 'products', fileNameProperty: 'image')]
+    private ?File $imageFile = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
@@ -62,6 +67,13 @@ class Articles
         $this->image = $image;
 
         return $this;
+    }
+    public function getImageFile(): ?file{
+         return $this->imageFile;
+    }
+    public function setimageFile( ?file $imageFile = null): void
+    {
+        $this-> imageFile = $imageFile;
     }
 
     public function getDescription(): ?string
