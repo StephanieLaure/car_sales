@@ -1,7 +1,15 @@
 {% extends 'base.html.twig' %}
 {% block title %} page de contact {% endblock %}
 
+
 {% block body %}
+ {{ encore_entry_link_tags('app') }}
+        {% block stylesheets %}
+        {{parent()}}
+        
+        {% endblock %}
+
+<h1> Laissez votre message</h1>
 <div class="bg-white p-5 contact-form">
     <div class="form-group">
 {{ form_start(our_form) }}
