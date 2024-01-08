@@ -16,7 +16,7 @@ footer.li{
     color: red;
 }
 .box{ margin: 10px 0; padding: 10px; font-weight:700; color:black;
-    border-radius: 10px;}
+    border-radius: 10px; border:ridge;}
 .animate-transform{ animation: 2s ease-in 2s infinite alternate goRight; background: blue; width: 500px; height: 100px; text-align: center;
 }
  @keyframes goRight { 
@@ -31,6 +31,26 @@ footer.li{
  
     }
 }
+
+.card{
+    display: flex;
+    padding: 5px;
+    width: 40%;
+    height:20%;
+    border-radius: 10px;
+    margin: 5px;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+.card-body{
+    
+    background-color:grey;
+    color: orange;
+}
+
+
+    
+
 //@import "~bootstrap/scss/bootstrap";
 
 

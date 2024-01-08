@@ -15,15 +15,17 @@
      { backgroundcolor:#EE82EE; padding: 2px 6px; }
 </style>
 <div h1 class="box animate-transform">{{ controller_name }}!</div></h1>  
-     
+    
     {% for article in articles %}
-    <div class= "col-md-4 my-2 d-flex">
-   <div class="card" style= "width":50%>
+    
+   <div class="card">
+   
    <div class="card-body">
+   
     
     
   <img src="{{asset('media/'~article.image)}}" class="card-img-top" alt="png;base64">
-  <div class="card-body">
+  
     <h5 class="card-title">{{ article.titre }}</h5>
     <p class="card-text">{{ article.description }}.</p>
     <p> prix: {{ article.price }} </p>
@@ -33,8 +35,8 @@
     <a href="{{ path( 'app_article_part',{id: article.id} ) }}" class="btn btn-primary"> Details...</a>
   </div> 
 </div>
-</div>
-</div>
+
+
 {% endfor %}
 
 
